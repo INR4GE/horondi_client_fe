@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +7,6 @@ import {
   getAllModels,
   getModelsByCategory
 } from '../../redux/model/model.actions';
-import { getImage } from '../../utils/imageLoad';
 import CircularLoadingBar from '../../components/circular-loading-bar';
 import {
   setColorsFilter,
@@ -25,7 +24,6 @@ const images = [
 ];
 
 const Models = ({ category }) => {
-  //  const [images, setImages] = useState([]);
   const styles = useStyles();
   const dispatch = useDispatch();
 
@@ -41,14 +39,6 @@ const Models = ({ category }) => {
   useEffect(() => {
     dispatch(category ? getModelsByCategory(category._id) : getAllModels());
   }, [dispatch, category]);
-
-  /*  useMemo(() => {
-      models.forEach((item) => {
-        getImage(item.images.small)
-          .then((src) => setImages((prev) => [...prev, src]))
-          .catch((badSrc) => setImages((prev) => [...prev, badSrc]));
-      });
-    }, [models]); */
 
   const handleClick = (model) => {
     dispatch(setModelsFilter([model.name[1].value]));
@@ -70,7 +60,7 @@ const Models = ({ category }) => {
 
   return (
     <div className={styles.root}>
-      {models.map((model, index) => (
+      {models.map((model) => (
         <Link
           key={model.name[1].value}
           className={styles.modelItem}
@@ -80,15 +70,9 @@ const Models = ({ category }) => {
           <div className={styles.modelItemTitle}>
             {model.name[language].value}
           </div>
-          <div
-            className={styles.modelItemImage}
-            style={{
-              background: `url(${
-                images[Math.floor(Math.random() * (2 + 1))]
-              }) center center`,
-              backgroundSize: 'cover'
-            }}
-          />
+          <div className={styles.modelItemImage}>
+            <img src={images[Math.floor(Math.random() * (2 + 1))]} alt='ggg' />
+          </div>
         </Link>
       ))}
       <Link className={styles.modelItem} to='/unique'>

@@ -6,13 +6,12 @@ export const useStyles = makeStyles((theme) => ({
     margin: '50px auto',
     display: 'flex',
     flexFlow: 'wrap',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    justifyContent: 'center'
   },
   modelItem: {
     flex: '1 0 31.3333%',
-    maxWidth: '31%',
-    margin: 10,
-    borderRadius: '10px',
+    margin: 5,
     boxSizing: 'border-box',
     display: 'flex',
     overflow: 'hidden',
@@ -24,7 +23,7 @@ export const useStyles = makeStyles((theme) => ({
     '&:after': {
       content: `''`,
       background: 'black',
-      opacity: '.3',
+      opacity: '.7',
       position: 'absolute',
       transition: 'opacity .2s ease',
       top: 0,
@@ -32,27 +31,39 @@ export const useStyles = makeStyles((theme) => ({
       left: 0,
       bottom: 0
     },
-    '&:hover div:last-child': {
+    '&:hover div:last-child img': {
       zIndex: 12,
       transform: 'scale(1.1)'
+    },
+    '&:hover div:first-child': {
+      color: 'black'
     },
     '&:hover:after': {
       opacity: '.1'
     }
   },
   modelItemTitle: {
-    padding: 10,
+    padding: 20,
     display: 'flex',
     alignItems: 'flex-end',
     zIndex: 10,
     color: 'white',
-    fontSize: '1.5em',
-    fontWeight: 'bold',
-    textShadow: '2px 2px 10px black'
+    fontSize: '1.6em',
+    fontWeight: '400',
+    textShadow: '2px 2px 10px black',
+    textAlign: 'left',
+    transition: 'color .2s ease'
   },
   modelItemImage: {
-    width: '100%',
+    width: '50%',
     height: '100%',
-    transition: 'all .2s ease'
+    position: 'absolute',
+    right: '30px',
+    backgroundSize: 'cover',
+    '& img': {
+      transition: 'all .2s ease',
+      width: 'auto',
+      height: '100%'
+    }
   }
 }));

@@ -17,6 +17,7 @@ export const useStyles = makeStyles(() => ({
     textDecoration: 'none',
     color: '#ffffff',
     padding: '0.3rem 0.5rem',
+    margin: '0 5px',
     fontSize: '1.2rem',
     letterSpacing: '0.1rem',
     transition: 'all 0.3s',

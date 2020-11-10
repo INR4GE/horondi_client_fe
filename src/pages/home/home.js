@@ -4,6 +4,7 @@ import SliderHomePage from './slider-home-page';
 import CategoriesList from './categories-list';
 import OurLooks from './our-looks';
 import { useStyles } from './home.styles';
+import Models from '../models';
 
 const Home = () => {
   const styles = useStyles();
@@ -14,6 +15,7 @@ const Home = () => {
         <SliderHomePage />
       </div>
       <CategoriesList />
+      <Models />
       <OurLooks />
     </div>
   );
