@@ -26,11 +26,13 @@ import ErrorPage from '../pages/error-page';
 import ThanksPage from '../pages/thanks-page';
 import Contacts from '../pages/contacts';
 import ProductsCarousel from '../pages/products-carousel';
+import Models from '../pages/models';
 import Checkout from '../containers/checkout';
 import ProfilePage from '../pages/profile-page';
 import OrderHistory from '../pages/order-history';
 import ProtectedRoute from '../components/protected-route';
 import Materials from '../pages/materials';
+import Constructor from '../pages/constructor';
 
 const Routes = () => {
   const styles = useStyles();
@@ -114,9 +116,11 @@ const Routes = () => {
                   categoryFound.name[1].value.toLowerCase() ===
                     category.toLowerCase() && categoryFound.isMain
               );
-              return <ProductsCarousel category={categoryParam} />;
+              return <Models category={categoryParam} />;
             }}
           />
+          <Route path='/constructor' exact component={Constructor} />
+          <Route path='/models' exact component={Models} />
           <Route path='/product/:id' exact component={ProductDetails} />
           <Route
             path='/:category/:model'
