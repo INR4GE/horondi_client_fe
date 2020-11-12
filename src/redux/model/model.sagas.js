@@ -31,8 +31,7 @@ export function* handleAllModelsLoad() {
 }
 
 export function* handleModelsErrors(e) {
-  console.log(e);
-  yield put(setError({ e }));
+  yield put(setError(e.message));
   yield put(push('/error-page'));
 }
 
